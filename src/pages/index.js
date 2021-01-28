@@ -1,6 +1,6 @@
 import React from "react"
-import { useSiteData } from './useSiteData';
-import { useArticles } from './useArticles';
+import useSiteData from '../hooks/useSiteData';
+import useArticles from '../hooks/useArticles';
 import styled from 'styled-components';
 
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery } from 'gatsby';
 import { graphql } from 'gatsby';
 
-export const useSiteData = () => {
+export default function useSiteData() {
     const result = useStaticQuery(
       graphql`
             query MyQuery {
