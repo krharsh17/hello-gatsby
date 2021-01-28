@@ -1,5 +1,31 @@
 import React from "react"
+import { useSiteData } from './useSiteData';
+import { useArticles } from './useArticles';
+import styled from 'styled-components';
+
+
+const Title = styled.div`
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  color: ${props => props.color}
+`
 
 export default function Home() {
-  return <div>Hello world!</div>
+  const meta = useSiteData()
+  const articles = useArticles()
+  return (
+    <div>
+      <Title color="#000">{meta.title}</Title>
+      <div>Articles:</div>
+      <ul></ul>
+      {articles.map(article => {
+      return <li>
+        <a href={`/articles/${article.frontmatter.location}`}>{article.frontmatter.title}</a>
+      </li>
+      })}
+    </div>
+  )
 }
+
+

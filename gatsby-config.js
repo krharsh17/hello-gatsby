@@ -5,6 +5,28 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: "My First Blog in Gatsby",
+    description: "Lorem ipsum dolor"
+  },
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.md', '.mdx'],
+        defaultLayouts: {
+          default: require.resolve('./src/templates/Layout.js')
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/`,
+        name: 'articles'
+      }
+    }
+  ],
 }
